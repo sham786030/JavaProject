@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 public class ClassicProducerConsumerExample {
     public static void main(String[] args) throws InterruptedException {
-        Buffer buffer = new Buffer(2);
+        Buffer buffer = new Buffer(1);//We can defined the produce and cosumed gap according to our need
         Thread producerThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -23,8 +23,8 @@ public class ClassicProducerConsumerExample {
                 }
             }
         });
-        producerThread.start();
-        consumerThread.start();
+        producerThread.start();//Produce is started
+        consumerThread.start();//Consumed is started
         producerThread.join();
         consumerThread.join();
     }
